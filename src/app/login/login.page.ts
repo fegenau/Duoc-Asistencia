@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router,NavigationExtras} from '@angular/router';
 import { usuario } from '../modelos/usuarios';
 import { perfil } from '../modelos/perfil';
+import { ConsumoApiService } from '../service/consumo-api.service';
 
 @Component({
   selector: 'app-login',
@@ -70,8 +71,24 @@ export class LoginPage implements OnInit {
     
 
   }
-  constructor(private router: Router) { }
-  
+  constructor(private router: Router, private consumoApi: ConsumoApiService) { }
+    getUsuario(){
+      //const responseJson = this.generateResponseJson();
+      this.consumoApi.GetAllUser()
+        .subscribe(
+          (response) => { // Asegúrate de que estás tipando la respuesta como HttpResponse.
+            console.log('Éxito:', response);
+            console.log('Código de estado HTTP:', response); 
+          },
+          (error) => {
+            console.log('Error al guardar parcialmente:', error);
+            if (error.status) {
+                console.log('Código de estado HTTP del error:', error.status);
+            }
+          }
+        );
+    }
+    
  
 
   ngOnInit() {
@@ -79,4 +96,4 @@ export class LoginPage implements OnInit {
   navigate(){
       this.router.navigate(['home/estudiante'])
     }
-}
+  }

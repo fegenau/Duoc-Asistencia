@@ -13,7 +13,7 @@
                 <ion-input placeholder="Contraseña" type="Password" [(ngModel)]="user.password"></ion-input>
               </ion-item>
               <div class="ion-margin-vertical ion-text-right">
-                <ion-button id="btn-login" (click)="gotohome()" >{{desLogin}}</ion-button>
+                <ion-button id="btn-login" (click)="this.getUsuario();" >{{desLogin}}</ion-button>
               </div>
           </ion-card-content>
         </ion-card>
