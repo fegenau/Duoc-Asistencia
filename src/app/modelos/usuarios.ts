@@ -4,4 +4,6 @@ export class usuario{
     user : string | undefined;
     correo : string | undefined;
     tipoPerfil : number | undefined;
+    rut : string | undefined;
+    email : string | undefined;
 }

@@ -7,10 +7,10 @@
           <ion-img src="../../assets/icon/User.png"></ion-img>
           <ion-card-content>
               <ion-item>
-                <ion-input placeholder="Usuario" type="text" [(ngModel)]="user.usuario"></ion-input>
+                <ion-input placeholder="Usuario" type="text" name="usuario"></ion-input>
               </ion-item>
               <ion-item>
-                <ion-input placeholder="Contraseña" type="Password" [(ngModel)]="user.password"></ion-input>
+                <ion-input placeholder="Contraseña" type="Password" name="contraseña"></ion-input>
               </ion-item>
               <div class="ion-margin-vertical ion-text-right">
                 <ion-button id="btn-login" (click)="this.getUsuario();" >{{desLogin}}</ion-button>

@@ -14,4 +14,8 @@ export class ConsumoApiService {
   public GetAllUser(){
     return this.http.get<usuario[]>(this.url+'persona/');
   }
+
+  public GetOneUser(){
+    return this.http.get<usuario [] >(this.url+usuario);
+  }
 }

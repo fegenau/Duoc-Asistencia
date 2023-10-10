@@ -13,11 +13,9 @@ export class LoginPage implements OnInit {
 
   desUser = "Ingrese usuario";
   desPassword = "Ingrese contraseña";
-  desLogin = "Iniciar Sesion"
-  user = {
-    usuario: "",
-    password: ""
-  }
+  desLogin = "Iniciar Sesion";
+  usuario = "";
+  contraseña = "";
 
   listaPerfiles: perfil [] = [
     {
@@ -30,44 +28,28 @@ export class LoginPage implements OnInit {
     }
   ];
 
-    listaUsuario: usuario[] = [
-      {
-        id:18292912-3,
-        nombre:"Juan",
-        user:"juan",
-        correo:'juan@duouc.cl',
-        tipoPerfil:1
-      },
-      {
-        id:18292912-4,
-        nombre:"Pedro",
-        user:"pedro",
-        correo:'pedro@duocuc.cl',
-        tipoPerfil:2
-      }
-  ];
 
   gotohome(){
     let setData: NavigationExtras = {
-      state: { user:this.user.usuario}
+      state: { user:this.usuario}
     };
-    const usuarioActual = this.listaUsuario.find((usuario) => usuario.user === this.user.usuario);
+    //const usuarioActual = this.listaUsuario.find((usuario) => usuario.user === this.user.usuario);
 
-    if(usuarioActual) {
-      const perfilUsuario = this.listaPerfiles.find((perfil) => perfil.id === usuarioActual.tipoPerfil);
-      if(perfilUsuario && perfilUsuario.id === 1){
-        this.router.navigate(['profesor']);
+   //if(usuarioActual) {
+   //  const perfilUsuario = this.listaPerfiles.find((perfil) => perfil.id === usuarioActual.tipoPerfil);
+   //  if(perfilUsuario && perfilUsuario.id === 1){
+   //    this.router.navigate(['profesor']);
 
-       }else if(perfilUsuario && perfilUsuario.id === 2){
-        this.router.navigate(['estudiante']);
+   //   }else if(perfilUsuario && perfilUsuario.id === 2){
+   //    this.router.navigate(['estudiante']);
 
-       }else{
-        console.log("Perfil no reconocido")
-       }
-      
-    } else{
-      console.log("Usuario no entontrado");
-    }
+   //   }else{
+   //    console.log("Perfil no reconocido")
+   //   }
+   //  
+   //} else{
+   //  console.log("Usuario no entontrado");
+   //}
     
 
   }
