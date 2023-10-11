@@ -5,16 +5,18 @@
       <ion-col sizeXl="1140px" sizeLg="960px" sizeMd ="720px" sizeSm="540px" sizeXs="100%">
         <ion-card>
           <ion-img src="../../assets/icon/User.png"></ion-img>
-          <ion-card-content>
+          <ion-card-content class="login-content">
+            <form id="usuario">
               <ion-item>
-                <ion-input placeholder="Usuario" type="text" name="usuario"></ion-input>
+                <ion-input label="{{textUser}}" labelPlacement="floating" placeholder="{{desUser}}" formControlName="user"></ion-input>
               </ion-item>
               <ion-item>
-                <ion-input placeholder="Contraseña" type="Password" name="contraseña"></ion-input>
+                <ion-input label="{{textPass}}" labelPlacement="floating" placeholder="{{desPassword}}" formControlName="pass"></ion-input>
               </ion-item>
               <div class="ion-margin-vertical ion-text-right">
-                <ion-button id="btn-login" (click)="this.getUsuario();" >{{desLogin}}</ion-button>
+                <ion-button id="btn-login"  (click)="this.ingresar();" >{{textBtn}}</ion-button>
               </div>
+            </form>
           </ion-card-content>
         </ion-card>
       </ion-col>
