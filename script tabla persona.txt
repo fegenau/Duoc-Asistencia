@@ -1,0 +1,20 @@
+-- Table: public.persona
+
+-- DROP TABLE IF EXISTS public.persona;
+
+CREATE TABLE IF NOT EXISTS public.persona
+(
+    id character(36) COLLATE pg_catalog."default" NOT NULL,
+    nombre character(100) COLLATE pg_catalog."default",
+    usuario character(20) COLLATE pg_catalog."default",
+    "contraseña" character varying(10) COLLATE pg_catalog."default",
+    tipo numeric(1,0),
+    rut character varying(10) COLLATE pg_catalog."default",
+    email character varying(50) COLLATE pg_catalog."default",
+    CONSTRAINT persona_pkey PRIMARY KEY (id)
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.persona
+    OWNER to postgres;
