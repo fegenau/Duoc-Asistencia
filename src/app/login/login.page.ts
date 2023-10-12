@@ -24,16 +24,16 @@ export class LoginPage implements OnInit {
   desUser = 'Ingrese usuario';
   desPassword = 'Ingrese contraseña';
   textUser = 'Usuario';
-  textPass = 'Iniciar Sesion';
+  textPass = 'Contraseña';
   textBtn = 'Ingresar';
 
   usuario = new FormGroup({
-    user: new FormControl('', [
+    usuario: new FormControl('', [
       Validators.required,
       Validators.minLength(4),
       Validators.maxLength(20),
     ]),
-    pass: new FormControl('', [
+    contraseña: new FormControl('', [
       Validators.required,
       Validators.minLength(4),
       Validators.maxLength(20),
@@ -41,9 +41,8 @@ export class LoginPage implements OnInit {
   });
 
   ingresar() {
-    //const responseJson = this.generateResponseJson();
     this.consumoApi
-      .login(this.usuario.value.user!, this.usuario.value.pass!)
+      .login(this.usuario.value.usuario!, this.usuario.value.contraseña!)
       .subscribe(
         (response) => {
           // Asegúrate de que estás tipando la respuesta como HttpResponse.
