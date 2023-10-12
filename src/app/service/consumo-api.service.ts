@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse,HttpHeaders, HttpParams } from '@angular/common/http';
 import { usuario } from '../modelos/usuarios';
-import { Observable } from 'rxjs';
+import { Observable, from } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ConsumoApiService {
 
