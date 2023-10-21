@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-estudiante',
@@ -7,7 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EstudiantePage implements OnInit {
 
-  constructor() { }
+  nombreLogin: any;
+  tipoEstudiante:any;
+
+  constructor(private activeroute: ActivatedRoute, private router: Router) {
+    this.activeroute.queryParams.subscribe(params => {
+      if (this.router.getCurrentNavigation()?.extras.state ) {
+        this.nombreLogin = this.router.getCurrentNavigation()?.extras.state?.['nombre'];
+        
+      }
+    })
+   }
 
   ngOnInit() {
   }

@@ -14,10 +14,10 @@ export class ConsumoApiService {
 
   url:string = 'http://127.0.0.1:5000/api/persona';
 
-  public login(usuario:string, contraseña: string): Observable<HttpResponse<usuario>> {
+  public login(usuario:string, contrasena: string): Observable<HttpResponse<usuario>> {
     const body = {
       usuario: usuario,
-      password : contraseña,
+      password : contrasena,
     };
     return this.http.post<usuario>(this.url + "/login",body, {...this.httpOptions, observe: 'response'});
   }

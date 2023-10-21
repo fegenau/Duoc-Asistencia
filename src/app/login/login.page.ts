@@ -61,12 +61,12 @@ export class LoginPage implements OnInit {
 
             console.log('Código de estado HTTP:' + this.typeuser.tipo);
 
-            if (this.typeuser.tipo === 1) {
+            if (this.typeuser.tipo == 1) {
               //this.auth.setAuthenticationStatus(true);
               this.router.navigate(['/estudiante'], setData);
             }
 
-            if (this.typeuser.tipo === 2) {
+            if (this.typeuser.tipo == 2) {
               //this.auth.setAuthenticationStatus(true);
               this.router.navigate(['/profesor'], setData);
             }
