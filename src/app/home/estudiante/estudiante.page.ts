@@ -8,13 +8,21 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class EstudiantePage implements OnInit {
 
-  nombreLogin: any;
+  nombre: any;
+  apellido: any;
+  correo : any;
+  carrera: any;
+  rut: any;
   tipoEstudiante:any;
 
   constructor(private activeroute: ActivatedRoute, private router: Router) {
     this.activeroute.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation()?.extras.state ) {
-        this.nombreLogin = this.router.getCurrentNavigation()?.extras.state?.['nombre'];
+        this.nombre = this.router.getCurrentNavigation()?.extras.state?.['nombre'];
+        this. apellido = this.router.getCurrentNavigation()?.extras.state?.['apellidop'];
+        this.rut = this.router.getCurrentNavigation()?.extras.state?.['rut'];
+        this.correo = this.router.getCurrentNavigation()?.extras.state?.['correo'];
+        this.carrera = this.router.getCurrentNavigation()?.extras.state?.['carrera'];
         
       }
     })

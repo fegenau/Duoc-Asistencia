@@ -6,4 +6,6 @@ export class usuario{
     tipo : number | undefined;
     rut : string | undefined;
     email : string | undefined;
+    carrera : string | undefined;
+    apellidop : string | undefined;
 }

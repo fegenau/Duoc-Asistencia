@@ -56,6 +56,9 @@ export class LoginPage implements OnInit {
                 email: this.typeuser.email,
                 nombre: this.typeuser.nombre,
                 tipo: this.typeuser.tipo,
+                rut: this.typeuser.rut,
+                carrera: this.typeuser.carrera,
+                apellidop: this.typeuser.apellidop,
               },
             };
 
