@@ -19,6 +19,18 @@ const routes: Routes = [
     path: 'profesor',
     loadChildren: () => import('./home/profesor/profesor.module').then( m => m.ProfesorPageModule)
   },
+  {
+    path: 'loading',
+    loadChildren: () => import('./loading/loading.module').then( m => m.LoadingPageModule)
+  },
+  {
+    path: 'menu-profesor',
+    loadChildren: () => import('./menu/menu-profesor/menu-profesor.module').then( m => m.MenuProfesorPageModule)
+  },
+  {
+    path: 'menu-estudiante',
+    loadChildren: () => import('./menu/menu-estudiante/menu-estudiante.module').then( m => m.MenuEstudiantePageModule)
+  },
 ];
 
 @NgModule({

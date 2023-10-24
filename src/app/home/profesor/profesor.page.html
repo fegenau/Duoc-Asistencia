@@ -1,13 +1,14 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>profesor</ion-title>
+  <ion-toolbar color="primary">
+    <ion-img src=" ../../../../../assets/icon/pngegg.png"></ion-img>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">profesor</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <h1>Nombre profesor</h1>
+    </ion-card-header>
+  </ion-card>
+  <ion-button [routerLink]="['/menu-profesor']" color="danger"> Volver</ion-button>
 </ion-content>
