@@ -66,7 +66,7 @@ export class LoginPage implements OnInit {
 
             if (this.typeuser.tipo == 1) {
               //this.auth.setAuthenticationStatus(true);
-              this.router.navigate(['/estudiante'], setData);
+              this.router.navigate(['/menu-estudiante'], setData);
             }
 
             if (this.typeuser.tipo == 2) {

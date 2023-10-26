@@ -4,18 +4,14 @@ ion-img {
     height:auto;
 }
 
+ion-card{
+    box-shadow: none;
+}
+
 ion-card-title{
     text-align:center;
     font-size: 20px;
     font-weight: bold;
 }
 
-ion-button{
-    .asistencia{
-        background-color: white;
-        display:flex;
-        justify-content: right;
-        width: 50%;
-        height: auto;
-        }
-    }
+
