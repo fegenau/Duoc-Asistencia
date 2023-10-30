@@ -6,7 +6,7 @@
         <ion-card>
           <ion-img src="../../assets/icon/User.png"></ion-img>
           <ion-card-content class="login-content">
-            <form id="usuario">
+            <form [formGroup]="usuario">
               <ion-item>
                 <ion-input label="{{textUser}}" labelPlacement="floating" placeholder="{{desUser}}" formControlName="user"></ion-input>
               </ion-item>
