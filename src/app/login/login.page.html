@@ -8,15 +8,17 @@
           <ion-card-content class="login-content">
             <form [formGroup]="usuario">
               <ion-item>
-                <ion-input label="{{textUser}}" labelPlacement="floating" placeholder="{{desUser}}" formControlName="user"></ion-input>
+                <ion-input label="{{textUser}}" labelPlacement="floating" placeholder="{{desUser}}" formControlName="usuario"></ion-input>
               </ion-item>
               <ion-item>
-                <ion-input label="{{textPass}}" labelPlacement="floating" placeholder="{{desPassword}}" formControlName="pass"></ion-input>
+                <ion-input type="password" label="{{textPass}}" labelPlacement="floating" placeholder="{{desPassword}}" formControlName="contraseña"></ion-input>
               </ion-item>
               <div class="ion-margin-vertical ion-text-right">
                 <ion-button id="btn-login"  (click)="this.ingresar();" >{{textBtn}}</ion-button>
               </div>
             </form>
+              
+           
           </ion-card-content>
         </ion-card>
       </ion-col>

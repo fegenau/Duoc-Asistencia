@@ -3,6 +3,7 @@ import { Router, NavigationExtras } from '@angular/router';
 import { usuario } from '../modelos/usuarios';
 import { perfil } from '../modelos/perfil';
 import { ConsumoApiService } from '../service/consumo-api.service';
+
 //import { AuthGuard } from ;
 
 import {
@@ -23,16 +24,16 @@ export class LoginPage implements OnInit {
   desUser = 'Ingrese usuario';
   desPassword = 'Ingrese contraseña';
   textUser = 'Usuario';
-  textPass = 'Iniciar Sesion';
+  textPass = 'Contraseña';
   textBtn = 'Ingresar';
 
   usuario = new FormGroup({
-    user: new FormControl('', [
+    usuario: new FormControl('', [
       Validators.required,
       Validators.minLength(4),
       Validators.maxLength(20),
     ]),
-    pass: new FormControl('', [
+    contraseña: new FormControl('', [
       Validators.required,
       Validators.minLength(4),
       Validators.maxLength(20),
@@ -40,9 +41,8 @@ export class LoginPage implements OnInit {
   });
 
   ingresar() {
-    //const responseJson = this.generateResponseJson();
     this.consumoApi
-      .login(this.usuario.value.user!, this.usuario.value.pass!)
+      .login(this.usuario.value.usuario!, this.usuario.value.contraseña!)
       .subscribe(
         (response) => {
           // Asegúrate de que estás tipando la respuesta como HttpResponse.
@@ -56,19 +56,22 @@ export class LoginPage implements OnInit {
                 email: this.typeuser.email,
                 nombre: this.typeuser.nombre,
                 tipo: this.typeuser.tipo,
+                rut: this.typeuser.rut,
+                carrera: this.typeuser.carrera,
+                apellidop: this.typeuser.apellidop,
               },
             };
 
             console.log('Código de estado HTTP:' + this.typeuser.tipo);
 
-            if (this.typeuser.tipo === 1) {
+            if (this.typeuser.tipo == 1) {
               //this.auth.setAuthenticationStatus(true);
-              this.router.navigate(['/estudiante'], setData);
+              this.router.navigate(['/menu-estudiante'], setData);
             }
 
-            if (this.typeuser.tipo === 2) {
+            if (this.typeuser.tipo == 2) {
               //this.auth.setAuthenticationStatus(true);
-              this.router.navigate(['/profesor'], setData);
+              this.router.navigate(['/menu-profesor'], setData);
             }
           }
 
