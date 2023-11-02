@@ -94,41 +94,6 @@ export class LoginPage implements OnInit {
     await alert.present();
   }
 
-  //        if (error.status) {
-  //            console.log('Código de estado HTTP del error:', error.status);
-  //        }
-  //      }
-  //    );
-
-  // listaPerfiles: perfil [] = [
-  //// {
-  ////   id:1,
-  ////   nombre:"Estudiante"
-  //// },
-  //// {
-  ////   id:2,
-  ////   nombre:"Profesor"
-  //// }
-  //]
-  //const usuarioActual = this.listaUsuario.find((usuario) => usuario.user === this.user.usuario);
-
-  //if(usuarioActual) {
-  //  const perfilUsuario = this.listaPerfiles.find((perfil) => perfil.id === usuarioActual.tipoPerfil);
-  //  if(perfilUsuario && perfilUsuario.id === 1){
-  //    this.router.navigate(['profesor']);
-
-  //   }else if(perfilUsuario && perfilUsuario.id === 2){
-  //    this.router.navigate(['estudiante']);
-
-  //   }else{
-  //    console.log("Perfil no reconocido")
-  //   }
-  //
-  //} else{
-  //  console.log("Usuario no entontrado");
-
-  //}
-
   constructor(
     private router: Router,
     private consumoApi: ConsumoApiService,

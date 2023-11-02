@@ -1,0 +1,17 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-img src=" ../../../../../assets/icon/pngegg.png"></ion-img>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card class="ion-text-center">
+    <ion-card-content>
+      <qrcode
+      [qrdata]="qrCodeString" 
+      [width]="256" 
+      [errorCorrectionLevel]="'L'">
+    </qrcode>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

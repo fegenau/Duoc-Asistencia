@@ -32,9 +32,14 @@ const routes: Routes = [
     loadChildren: () => import('./menu/menu-estudiante/menu-estudiante.module').then( m => m.MenuEstudiantePageModule)
   },
   {
-    path: 'lista-alumnos',
-    loadChildren: () => import('./lista-alumnos/lista-alumnos.module').then( m => m.ListaAlumnosPageModule)
+    path: 'qrpage',
+    loadChildren: () => import('./qrpage/qrpage.module').then( m => m.QrpagePageModule)
+  },  {
+    path: 'asignatura',
+    loadChildren: () => import('./asignatura/asignatura.module').then( m => m.AsignaturaPageModule)
   },
+
+
 ];
 
 @NgModule({
