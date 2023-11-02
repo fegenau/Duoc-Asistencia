@@ -17,7 +17,6 @@ export class MenuProfesorPage implements OnInit {
       if (this.router.getCurrentNavigation()?.extras.state ) {
         this.nombre = this.router.getCurrentNavigation()?.extras.state?.['nombre'];
         this. apellido = this.router.getCurrentNavigation()?.extras.state?.['apellidop'];
-        
         }
       }
     
@@ -34,6 +33,6 @@ export class MenuProfesorPage implements OnInit {
         apellido: this.apellido
       }
     }
-    this.router.navigate(['asignatura'],setData);
+    this.router.navigate(['/asignatura'],setData);
   };
 }

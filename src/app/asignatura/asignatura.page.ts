@@ -29,7 +29,7 @@ export class AsignaturaPage implements OnInit {
         apellido: this.apellido
       }
     }
-    this.router.navigate(['qrpage'],setData);
+    this.router.navigate(['/qrpage'],setData);
   };
 }
 
