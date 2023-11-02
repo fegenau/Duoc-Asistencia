@@ -22,5 +22,14 @@ export class AsignaturaPage implements OnInit {
   ngOnInit() {
   }
 
+  gotopage(){
+    let setData: NavigationExtras = {
+      state: {
+        nombre: this.nombre,
+        apellido: this.apellido
+      }
+    }
+    this.router.navigate(['qrpage'],setData);
+  };
 }
 
