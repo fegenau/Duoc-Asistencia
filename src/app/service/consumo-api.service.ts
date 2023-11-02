@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse,HttpHeaders, HttpParams } from '@angular/common/http';
 import { usuario } from '../modelos/usuarios';
+import { asignatura } from '../modelos/asignatura';
 import { Observable, from } from 'rxjs';
 
 @Injectable({
@@ -20,5 +21,10 @@ export class ConsumoApiService {
       password : contrasena,
     };
     return this.http.post<usuario>(this.url + "/login",body, {...this.httpOptions, observe: 'response'});
+  }
+
+  public asignatura(id:string): Observable<HttpResponse<asignatura>> {
+    const params = new HttpParams().set('id', id);
+    return this.http.get<asignatura>(this.url + "/asignatura", { params, ...this.httpOptions, observe: 'response' });
   }
 }
