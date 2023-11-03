@@ -4,6 +4,7 @@ import { usuario } from '../modelos/usuarios';
 import { perfil } from '../modelos/perfil';
 import {FormGroup,FormControl,Validators,} from '@angular/forms';
 import { AlertController } from '@ionic/angular';
+import { ConsumoApiService } from '../service/consumo-api.service';
 
 @Component({
   selector: 'app-login',
@@ -29,6 +30,7 @@ export class LoginPage implements OnInit {
       Validators.maxLength(20),
     ]),
   });
+
   ingresar() {
     this.consumoApi
       .login(this.usuario.value.usuario!, this.usuario.value.contraseña!)

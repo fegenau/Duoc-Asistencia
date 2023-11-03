@@ -1,23 +1,29 @@
 import { Injectable } from '@angular/core';
-import { CanLoad, Route, UrlSegment, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
+import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { LoginPage } from './login/login.page';
 
 @Injectable({
-providedIn: 'root'
+  providedIn: 'root'
 })
-export class AuthGuard implements CanLoad {
+export class AuthGuard implements CanActivate {
+  private isAuthenticated = false;
+  constructor(private router: Router) {}
 
-constructor(private authService: LoginPage, private router: Router) {}
-
-canLoad(
-    route: Route,
-    segments: UrlSegment[]): Observable<boolean> | Promise<boolean> | boolean {
-    if (this.authService.isLoggedIn()) {
-    return true;
+  
+  setAuthenticationStatus(status: boolean) {
+    this.isAuthenticated = status;
+  }
+  
+  canActivate(
+    route: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot
+  ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+    if (this.isAuthenticated) {
+      return true; // Usuario autenticado, permitir el acceso.
     } else {
-      this.router.navigate(['/login.page']);
-    return false;
+      // Redirigir al usuario a la página de inicio de sesión.
+      this.router.navigate(['/login']);
+      return false;
     }
-}
+  }
 }
