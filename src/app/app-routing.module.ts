@@ -41,6 +41,11 @@ const routes: Routes = [
     loadChildren: () => import('./lista-alumnos/lista-alumnos.module').then(m => m.ListaAlumnosPageModule),
     canActivate: [AuthGuard]
   },
+  { path: 'not-found', loadChildren: () => import('./not-found/not-found.module').then(m => m.NotFoundPageModule) },
+  { path: '**', redirectTo: 'not-found' },
+
+
+
 ];
 
 @NgModule({
