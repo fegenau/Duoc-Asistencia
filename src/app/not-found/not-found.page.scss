@@ -1,0 +1,32 @@
+.error-container {
+    text-align: center;
+    animation: bounceIn 1s;
+  }
+  
+  .error-icon {
+    font-size: 100px;
+    color: #FF5733;
+  }
+  
+  .error-title {
+    font-size: 24px;
+    margin-top: 10px;
+  }
+  
+  .error-message {
+    font-size: 16px;
+    color: #777;
+  }
+  
+  @keyframes bounceIn {
+    0%, 20%, 40%, 60%, 80% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(-30px);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  

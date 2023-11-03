@@ -34,10 +34,13 @@ const routes: Routes = [
   {
     path: 'qrpage',
     loadChildren: () => import('./qrpage/qrpage.module').then( m => m.QrpagePageModule)
-  },  {
+  },
+  {
     path: 'asignatura',
     loadChildren: () => import('./asignatura/asignatura.module').then( m => m.AsignaturaPageModule)
   },
+  { path: 'not-found', loadChildren: () => import('./not-found/not-found.module').then(m => m.NotFoundPageModule) },
+  { path: '**', redirectTo: 'not-found' }
 
 
 ];
