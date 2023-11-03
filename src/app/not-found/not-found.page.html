@@ -6,8 +6,13 @@
 
 <ion-content class="ion-padding">
   <div class="error-container">
-    <ion-icon name="alert-circle" class="error-icon"></ion-icon>
-    <h2 class="error-title">Página no encontrada</h2>
-    <p class="error-message">Lo sentimos, la página que estás buscando no existe.</p>
+    <div class="error-image">
+      <img src="assets/error404.png" alt="Error 404 Image">
+    </div>
+    <div class="error-content">
+      <h2 class="error-title">Página no encontrada</h2>
+      <p class="error-message">Lo sentimos, la página que estás buscando no existe.</p>
+      <a routerLink="/home" class="back-link">Volver a la página de inicio</a>
+    </div>
   </div>
 </ion-content>
