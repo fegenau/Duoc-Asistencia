@@ -34,10 +34,12 @@ const routes: Routes = [
   {
     path: 'qrpage',
     loadChildren: () => import('./qrpage/qrpage.module').then( m => m.QrpagePageModule)
-  },  {
+  },
+  {
     path: 'asignatura',
     loadChildren: () => import('./asignatura/asignatura.module').then( m => m.AsignaturaPageModule)
   },
+ 
 
 
 ];
