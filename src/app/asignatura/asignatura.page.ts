@@ -24,6 +24,15 @@ export class AsignaturaPage implements OnInit {
     Validators.maxLength(7),
     ]),
   });
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      header: 'Error Login',
+      subHeader: 'Infomación : ',
+      message: 'Usuario o contraseña son incorrecto',
+      buttons: ['Aceptar'],
+    });
+    await alert.present();
+  }
 
   constructor(
 
@@ -71,15 +80,7 @@ consultarAsignatura(sigla:string){
     console.log('Error en inicio de sesion:', error);
   });
 
-async presentAlert() {
-    const alert = await this.alertController.create({
-      header: 'Error Login',
-      subHeader: 'Infomación : ',
-      message: 'Usuario o contraseña son incorrecto',
-      buttons: ['Aceptar'],
-    });
-    await alert.present();
-  }
+
   }
 }
 
