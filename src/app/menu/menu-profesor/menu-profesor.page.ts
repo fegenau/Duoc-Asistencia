@@ -20,19 +20,9 @@ export class MenuProfesorPage implements OnInit {
         }
       }
     
-  )}
+  )};
 
 
   ngOnInit() {
   }
-
-  gotopage(){
-    let setData: NavigationExtras = {
-      state: {
-        nombre: this.nombre,
-        apellido: this.apellido
-      }
-    }
-    this.router.navigate(['/asignatura'],setData);
-  };
 }

@@ -8,8 +8,9 @@ import { ActivatedRoute,NavigationExtras,Router } from '@angular/router';
 })
 export class QrpagePage implements OnInit {
 
+  id: any;
   nombre: any;
-  apellido: any;
+  sigla: any;
 
   qrCodeString= 'this is a secret qr code message';
 
@@ -17,7 +18,7 @@ export class QrpagePage implements OnInit {
     this.activerouter.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation()?.extras.state){
         this.nombre = this.router.getCurrentNavigation()?.extras.state?.['nombre'];
-        this.apellido = this.router.getCurrentNavigation()?.extras.state?.['apellidop']
+        this.sigla = this.router.getCurrentNavigation()?.extras.state?.['sigla']
       }
     })
   }

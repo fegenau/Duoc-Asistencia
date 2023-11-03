@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';
 import { usuario } from '../modelos/usuarios';
-import { perfil } from '../modelos/perfil';
 import { ConsumoApiService } from '../service/consumo-api.service';
 
 //import { AuthGuard } from ;
@@ -84,7 +83,7 @@ export class LoginPage implements OnInit {
         });
   }
 
-  async presentAlert() {
+async presentAlert() {
     const alert = await this.alertController.create({
       header: 'Error Login',
       subHeader: 'Infomación : ',

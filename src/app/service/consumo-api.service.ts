@@ -22,9 +22,13 @@ export class ConsumoApiService {
     };
     return this.http.post<usuario>(this.url + "/login",body, {...this.httpOptions, observe: 'response'});
   }
+  // Método para consultar una asignatura por su sigla
+  getAsignatura(sigla: string): Observable<any> {
+    // Construye la URL completa con la sigla
+    const url = `${this.url}/${sigla}`;
 
-  public asignatura(id:string): Observable<HttpResponse<asignatura>> {
-    const params = new HttpParams().set('id', id);
-    return this.http.get<asignatura>(this.url + "/asignatura", { params, ...this.httpOptions, observe: 'response' });
+    // Realiza la solicitud GET a la API
+    return this.http.get(url);
   }
 }
+  
