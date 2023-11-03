@@ -1,0 +1,13 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Cámara y QR
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-button (click)="abrirCamara()">Abrir Cámara</ion-button>
+  <img [src]="imagenCapturada" *ngIf="imagenCapturada">
+
+</ion-content>

@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { QRCodeModule } from 'angularx-qrcode';
+import { Camera } from '@ionic/camera/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -17,5 +18,6 @@ import { QRCodeModule } from 'angularx-qrcode';
   QRCodeModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
+  providers: [Camera],
 })
 export class AppModule {}

@@ -40,7 +40,11 @@ const routes: Routes = [
     loadChildren: () => import('./asignatura/asignatura.module').then( m => m.AsignaturaPageModule)
   },
   { path: 'not-found', loadChildren: () => import('./not-found/not-found.module').then(m => m.NotFoundPageModule) },
-  { path: '**', redirectTo: 'not-found' }
+  { path: '**', redirectTo: 'not-found' },  {
+    path: 'qr-scanner',
+    loadChildren: () => import('./qr-scanner/qr-scanner.module').then( m => m.QrScannerPageModule)
+  }
+
 
 
 ];
