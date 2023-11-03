@@ -25,6 +25,15 @@ export class AsignaturaPage implements OnInit {
     ]),
   });
 
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      header: 'Error Login',
+      subHeader: 'Infomación : ',
+      message: 'Usuario o contraseña son incorrecto',
+      buttons: ['Aceptar'],
+    });
+    await alert.present();
+  }
   constructor(
 
     private activeroute: ActivatedRoute, 
@@ -44,7 +53,7 @@ export class AsignaturaPage implements OnInit {
   ngOnInit() {
   }
 
-consultarAsignatura(sigla:string){
+consultarAsignatura(sigla:any){
   this.consumoApi.getAsignatura(sigla).subscribe(
     (data) => {
       // Aquí puedes manejar la respuesta de la API, por ejemplo, mostrarla en la interfaz de usuario.
@@ -70,16 +79,6 @@ consultarAsignatura(sigla:string){
   (error) => {
     console.log('Error en inicio de sesion:', error);
   });
-
-async presentAlert() {
-    const alert = await this.alertController.create({
-      header: 'Error Login',
-      subHeader: 'Infomación : ',
-      message: 'Usuario o contraseña son incorrecto',
-      buttons: ['Aceptar'],
-    });
-    await alert.present();
-  }
   }
 }
 

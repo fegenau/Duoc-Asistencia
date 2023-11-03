@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute,NavigationExtras,Router } from '@angular/router';
+import { ActivatedRoute,Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu-profesor',
@@ -11,18 +11,16 @@ export class MenuProfesorPage implements OnInit {
   nombre: any;
   apellido: any;
 
-  constructor(private activeroute: ActivatedRoute, private router: Router) 
+  constructor(private route: ActivatedRoute, private router: Router) 
   { 
-    this.activeroute.queryParams.subscribe(params => {
+    this.route.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation()?.extras.state ) {
         this.nombre = this.router.getCurrentNavigation()?.extras.state?.['nombre'];
-        this. apellido = this.router.getCurrentNavigation()?.extras.state?.['apellidop'];
+        this. apellido = this.router.getCurrentNavigation()?.extras.state?.['apellido'];
         }
       }
     
   )};
-
-
   ngOnInit() {
   }
 }

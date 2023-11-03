@@ -70,7 +70,7 @@ export class LoginPage implements OnInit {
 
             if (this.typeuser.tipo == 2) {
               //this.auth.setAuthenticationStatus(true);
-              this.router.navigate(['/menu-profesor'], setData);
+              this.router.navigate(['/loading'], setData);
             }
           }
 
