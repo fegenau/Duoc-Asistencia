@@ -9,7 +9,7 @@ export class AuthGuard implements CanActivate {
   private isAuthenticated = false;
   constructor(private router: Router) {}
 
-  
+
   setAuthenticationStatus(status: boolean) {
     this.isAuthenticated = status;
   }

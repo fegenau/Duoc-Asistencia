@@ -15,12 +15,12 @@ const routes: Routes = [
   {
     path: 'estudiante',
     loadChildren: () => import('./home/estudiante/estudiante.module').then(m => m.EstudiantePageModule),
-    canActivate: [AuthGuard] // Protege esta ruta con el AuthGuard
+    canActivate: [AuthGuard]
   },
   {
     path: 'profesor',
     loadChildren: () => import('./home/profesor/profesor.module').then(m => m.ProfesorPageModule),
-    canActivate: [AuthGuard] // Protege esta ruta con el AuthGuard
+    canActivate: [AuthGuard]
   },
   {
     path: 'loading',
@@ -29,17 +29,17 @@ const routes: Routes = [
   {
     path: 'menu-profesor',
     loadChildren: () => import('./menu/menu-profesor/menu-profesor.module').then(m => m.MenuProfesorPageModule),
-    canActivate: [AuthGuard] // Protege esta ruta con el AuthGuard
+    canActivate: [AuthGuard]
   },
   {
     path: 'menu-estudiante',
     loadChildren: () => import('./menu/menu-estudiante/menu-estudiante.module').then(m => m.MenuEstudiantePageModule),
-    canActivate: [AuthGuard] // Protege esta ruta con el AuthGuard
+    canActivate: [AuthGuard]
   },
   {
     path: 'lista-alumnos',
     loadChildren: () => import('./lista-alumnos/lista-alumnos.module').then(m => m.ListaAlumnosPageModule),
-    canActivate: [AuthGuard] // Protege esta ruta con el AuthGuard
+    canActivate: [AuthGuard]
   },
 ];
 
