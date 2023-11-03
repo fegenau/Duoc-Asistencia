@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute,Router } from '@angular/router';
 
+
+
+
+
 @Component({
   selector: 'app-menu-estudiante',
   templateUrl: './menu-estudiante.page.html',
@@ -15,11 +19,11 @@ export class MenuEstudiantePage implements OnInit {
   rut: any;
   tipoEstudiante:any;
 
-  constructor(private activeroute: ActivatedRoute, private router: Router) { 
+  constructor(private activeroute: ActivatedRoute, private router: Router,) { 
     this.activeroute.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation()?.extras.state ) {
         this.nombre = this.router.getCurrentNavigation()?.extras.state?.['nombre'];
-        this. apellido = this.router.getCurrentNavigation()?.extras.state?.['apellidop'];
+        this.apellido = this.router.getCurrentNavigation()?.extras.state?.['apellido'];
         this.carrera = this.router.getCurrentNavigation()?.extras.state?.['carrera'];
       }
     })
@@ -27,5 +31,4 @@ export class MenuEstudiantePage implements OnInit {
 
   ngOnInit() {
   }
-
-}
+} 

@@ -63,15 +63,9 @@ export class LoginPage implements OnInit {
 
             console.log('Código de estado HTTP:' + this.typeuser.tipo);
 
-            if (this.typeuser.tipo == 1) {
-              //this.auth.setAuthenticationStatus(true);
-              this.router.navigate(['/menu-estudiante'], setData);
-            }
-
-            if (this.typeuser.tipo == 2) {
-              //this.auth.setAuthenticationStatus(true);
-              this.router.navigate(['/loading'], setData);
-            }
+            //this.auth.setAuthenticationStatus(true);
+            this.router.navigate(['/loading'], setData);
+            
           }
 
           if (response.status === 401) {

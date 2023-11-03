@@ -11,6 +11,8 @@ export class LoadingPage implements OnInit {
 
   nombre: any;
   apellido: any;
+  tipo:any;
+  carrera: any;
 
   constructor(private route: ActivatedRoute, private router: Router,private navCtrl: NavController) 
   { 
@@ -18,7 +20,10 @@ export class LoadingPage implements OnInit {
       if (this.router.getCurrentNavigation()?.extras.state ) {
         this.nombre = this.router.getCurrentNavigation()?.extras.state?.['nombre'];
         this. apellido = this.router.getCurrentNavigation()?.extras.state?.['apellidop'];
+        this. tipo = this.router.getCurrentNavigation()?.extras.state?.['tipo'];
+        this.carrera=this.router.getCurrentNavigation()?.extras.state?.['carrera'];
         }
+
       }
     )};
       
@@ -28,13 +33,22 @@ export class LoadingPage implements OnInit {
     let setData: NavigationExtras = {
       state: {
         nombre: this.nombre,
-        apellido: this.apellido
+        apellido: this.apellido,
+        carrera: this.carrera
       }
     }
-    setTimeout(() => {
-      // Redirige a la página deseada después de 3 segundos
-      this.navCtrl.navigateForward('menu-profesor',setData);
-    }, 3000); // 3000 milisegundos (3 segundos)
+    if (this.tipo == 1){
+      setTimeout(() => {
+        // Redirige a la página deseada después de 3 segundos
+        this.navCtrl.navigateForward('menu-estudiante',setData);
+      }, 2500); // 3000 milisegundos (3 segundos)
+    }
+    if (this.tipo == 2){
+      setTimeout(() => {
+        // Redirige a la página deseada después de 3 segundos
+        this.navCtrl.navigateForward('menu-profesor',setData);
+      }, 2500); // 3000 milisegundos (3 segundos)
+    }
   }
 }
   
