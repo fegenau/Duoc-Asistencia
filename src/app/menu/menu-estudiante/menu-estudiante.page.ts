@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute,Router } from '@angular/router';
-
-
-
-
+import { ActivatedRoute, Router } from '@angular/router';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
 
 @Component({
   selector: 'app-menu-estudiante',
@@ -11,24 +8,40 @@ import { ActivatedRoute,Router } from '@angular/router';
   styleUrls: ['./menu-estudiante.page.scss'],
 })
 export class MenuEstudiantePage implements OnInit {
-
   nombre: any;
   apellido: any;
-  correo : any;
+  correo: any;
   carrera: any;
   rut: any;
-  tipoEstudiante:any;
+  tipoEstudiante: any;
 
-  constructor(private activeroute: ActivatedRoute, private router: Router,) { 
-    this.activeroute.queryParams.subscribe(params => {
-      if (this.router.getCurrentNavigation()?.extras.state ) {
-        this.nombre = this.router.getCurrentNavigation()?.extras.state?.['nombre'];
-        this.apellido = this.router.getCurrentNavigation()?.extras.state?.['apellido'];
-        this.carrera = this.router.getCurrentNavigation()?.extras.state?.['carrera'];
+  constructor(
+
+    private activeroute: ActivatedRoute, 
+    private router: Router,
+    private barcodeScanner: BarcodeScanner
+
+    ) {
+    this.activeroute.queryParams.subscribe((params) => {
+      if (this.router.getCurrentNavigation()?.extras.state) {
+        this.nombre =
+          this.router.getCurrentNavigation()?.extras.state?.['nombre'];
+        this.apellido =
+          this.router.getCurrentNavigation()?.extras.state?.['apellido'];
+        this.carrera =
+          this.router.getCurrentNavigation()?.extras.state?.['carrera'];
       }
+
+    });
+  }
+  scanQRCode(){
+    this.barcodeScanner.scan().then((barcodeData) => {
+      console.log('Resultado del escaneo:',barcodeData.text);
+    })
+    .catch((error) => {
+      console.error('Error al escanear',error);
     })
   }
 
-  ngOnInit() {
-  }
-} 
+  ngOnInit() {}
+}
