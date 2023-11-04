@@ -5,6 +5,7 @@ import { perfil } from '../modelos/perfil';
 import {FormGroup,FormControl,Validators,} from '@angular/forms';
 import { AlertController } from '@ionic/angular';
 import { ConsumoApiService } from '../service/consumo-api.service';
+import { AuthGuard } from '../home/guards/auth.guard';
 
 @Component({
   selector: 'app-login',
@@ -54,11 +55,11 @@ export class LoginPage implements OnInit {
             };
             console.log('Código de estado HTTP:' + this.typeuser.tipo);
             if (this.typeuser.tipo == 1) {
-              //this.auth.setAuthenticationStatus(true);
+              this.auth.setAuthenticationStatus(true);
               this.router.navigate(['/menu-estudiante'], setData);
             }
             if (this.typeuser.tipo == 2) {
-              //this.auth.setAuthenticationStatus(true);
+              this.auth.setAuthenticationStatus(true);
               this.router.navigate(['/menu-profesor'], setData);
             }
           }
@@ -82,7 +83,7 @@ export class LoginPage implements OnInit {
   constructor(
     private router: Router,
     private consumoApi: ConsumoApiService,
-    //private auth: AuthGuard,
+    private auth: AuthGuard,
     private alertController: AlertController
   ) {}
   ngOnInit() {}

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './home/guards/auth.guard';
+import { ActivatedRoute } from '@angular/router';
 
 const routes: Routes = [
   {
@@ -15,12 +16,14 @@ const routes: Routes = [
   {
     path: 'estudiante',
     loadChildren: () => import('./home/estudiante/estudiante.module').then(m => m.EstudiantePageModule),
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
+    data: { roles: [1] }
   },
   {
     path: 'profesor',
     loadChildren: () => import('./home/profesor/profesor.module').then(m => m.ProfesorPageModule),
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
+    data: { roles: [2] }
   },
   {
     path: 'loading',
@@ -29,17 +32,19 @@ const routes: Routes = [
   {
     path: 'menu-profesor',
     loadChildren: () => import('./menu/menu-profesor/menu-profesor.module').then(m => m.MenuProfesorPageModule),
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
+    data: { roles: [2] }
   },
   {
     path: 'menu-estudiante',
     loadChildren: () => import('./menu/menu-estudiante/menu-estudiante.module').then(m => m.MenuEstudiantePageModule),
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
+    data: { roles: [1] }
   },
   {
     path: 'lista-alumnos',
     loadChildren: () => import('./lista-alumnos/lista-alumnos.module').then(m => m.ListaAlumnosPageModule),
-    canActivate: [AuthGuard]
+    //canActivate: [AuthGuard]
   },
   { path: 'not-found', loadChildren: () => import('./not-found/not-found.module').then(m => m.NotFoundPageModule) },
   { path: '**', redirectTo: 'not-found' },
