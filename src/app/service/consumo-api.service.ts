@@ -21,10 +21,4 @@ export class ConsumoApiService {
     };
     return this.http.post<usuario>(this.url + "/login",body, {...this.httpOptions, observe: 'response'});
   }
-
-  public getUserRoles(): Observable<string[]> {
-    // Implementa la lógica para obtener los roles del usuario desde la base de datos.
-    // Puedes hacer una solicitud HTTP para obtener los roles.
-    return this.http.get<string[]>(this.url + "/getRoles", this.httpOptions);
-  }
 }
