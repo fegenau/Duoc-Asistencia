@@ -2,22 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';
 import { usuario } from '../modelos/usuarios';
 import { ConsumoApiService } from '../service/consumo-api.service';
-
-//import { AuthGuard } from ;
-
-import {
-  FormGroup,
-  FormControl,
-  Validators,
-} from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AlertController } from '@ionic/angular';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-
   private typeuser!: usuario;
 
   desUser = 'Ingrese usuario';
@@ -47,7 +40,7 @@ export class LoginPage implements OnInit {
           // Asegúrate de que estás tipando la respuesta como HttpResponse.
           this.typeuser = response.body as unknown as usuario;
           console.log('Éxito:', response.status);
-          if (response.status === 200) {
+          if (response.status == 200) {
             let setData: NavigationExtras = {
               state: {
                 id: this.typeuser.id,
@@ -60,29 +53,22 @@ export class LoginPage implements OnInit {
                 apellidop: this.typeuser.apellidop,
               },
             };
-
-            console.log('Código de estado HTTP:' + this.typeuser.tipo);
-
-            //this.auth.setAuthenticationStatus(true);
             this.router.navigate(['/loading'], setData);
-            
-          }
-
-          if (response.status === 401) {
-            this.presentAlert();
+          }else{
+            this.alert();          
           }
         },
         (error) => {
           console.log('Error en inicio de sesion:', error);
-        });
+        }
+      );
   }
-
-async presentAlert() {
+  async alert(){
     const alert = await this.alertController.create({
-      header: 'Error Login',
-      subHeader: 'Infomación : ',
-      message: 'Usuario o contraseña son incorrecto',
-      buttons: ['Aceptar'],
+      cssClass: 'my-custom-class',
+      header: 'Error',
+      message: 'Usuario o contraseña incorrectos',
+      buttons: ['OK']
     });
     await alert.present();
   }
@@ -90,12 +76,8 @@ async presentAlert() {
   constructor(
     private router: Router,
     private consumoApi: ConsumoApiService,
-    //private auth: AuthGuard,
     private alertController: AlertController
   ) {}
 
   ngOnInit() {}
-  navigate() {
-    this.router.navigate(['home/estudiante']);
-  }
 }

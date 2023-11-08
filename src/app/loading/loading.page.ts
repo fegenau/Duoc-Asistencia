@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute,NavigationExtras,Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
+import { GuardsGuard } from '../home/guards/guards.guard';
 
 @Component({
   selector: 'app-loading',
@@ -14,7 +15,7 @@ export class LoadingPage implements OnInit {
   tipo:any;
   carrera: any;
 
-  constructor(private route: ActivatedRoute, private router: Router,private navCtrl: NavController) 
+  constructor(private route: ActivatedRoute, private router: Router,private navCtrl: NavController, private auth: GuardsGuard) 
   { 
     this.route.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation()?.extras.state ) {
@@ -38,12 +39,14 @@ export class LoadingPage implements OnInit {
       }
     }
     if (this.tipo == 1){
+      this.auth.setAutenticationStatus(true);
       setTimeout(() => {
         // Redirige a la página deseada después de 3 segundos
         this.navCtrl.navigateForward('menu-estudiante',setData);
       }, 2500); // 3000 milisegundos (3 segundos)
     }
     if (this.tipo == 2){
+      this.auth.setAutenticationStatus(true);
       setTimeout(() => {
         // Redirige a la página deseada después de 3 segundos
         this.navCtrl.navigateForward('menu-profesor',setData);

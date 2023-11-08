@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { GuardsGuard } from './home/guards/guards.guard';
 
 const routes: Routes = [
   {
@@ -9,15 +10,20 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule),
+    //canActivate: [GuardsGuard]
   },
   {
     path: 'estudiante',
-    loadChildren: () => import('./home/estudiante/estudiante.module').then( m => m.EstudiantePageModule)
+    loadChildren: () => import('./home/estudiante/estudiante.module').then( m => m.EstudiantePageModule),
+    canActivate: [GuardsGuard],
+    data: {roles: [1] }
   },
   {
     path: 'profesor',
-    loadChildren: () => import('./home/profesor/profesor.module').then( m => m.ProfesorPageModule)
+    loadChildren: () => import('./home/profesor/profesor.module').then( m => m.ProfesorPageModule),
+    canActivate: [GuardsGuard],
+    data: {roles: [2] }
   },
   {
     path: 'loading',
@@ -25,19 +31,27 @@ const routes: Routes = [
   },
   {
     path: 'menu-profesor',
-    loadChildren: () => import('./menu/menu-profesor/menu-profesor.module').then( m => m.MenuProfesorPageModule)
+    loadChildren: () => import('./menu/menu-profesor/menu-profesor.module').then( m => m.MenuProfesorPageModule),
+    canActivate: [GuardsGuard],
+    data: {roles: [2] }
   },
   {
     path: 'menu-estudiante',
-    loadChildren: () => import('./menu/menu-estudiante/menu-estudiante.module').then( m => m.MenuEstudiantePageModule)
+    loadChildren: () => import('./menu/menu-estudiante/menu-estudiante.module').then( m => m.MenuEstudiantePageModule),
+    canActivate: [GuardsGuard],
+    data: {roles: [1] }
   },
   {
     path: 'qrpage',
-    loadChildren: () => import('./qrpage/qrpage.module').then( m => m.QrpagePageModule)
+    loadChildren: () => import('./qrpage/qrpage.module').then( m => m.QrpagePageModule),
+    canActivate: [GuardsGuard],
+    data: {roles: [1] }
   },
   {
     path: 'asignatura',
-    loadChildren: () => import('./asignatura/asignatura.module').then( m => m.AsignaturaPageModule)
+    loadChildren: () => import('./asignatura/asignatura.module').then( m => m.AsignaturaPageModule),
+    canActivate: [GuardsGuard],
+    data: {roles: [2] }
   },
   { path: 'not-found', loadChildren: () => import('./not-found/not-found.module').then(m => m.NotFoundPageModule) },
   { path: '**', redirectTo: 'not-found' },
