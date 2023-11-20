@@ -23,4 +23,5 @@ export class MenuProfesorPage implements OnInit {
   )};
   ngOnInit() {
   }
+  
 }
