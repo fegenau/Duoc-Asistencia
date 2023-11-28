@@ -4,6 +4,7 @@ import { usuario } from '../modelos/usuarios';
 import { ConsumoApiService } from '../service/consumo-api.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AlertController } from '@ionic/angular';
+import { HttpResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -55,7 +56,10 @@ export class LoginPage implements OnInit {
             };
             this.router.navigate(['/loading'], setData);
           }else{
-            this.alert();          
+            if (response.status === 401){
+              this.alert();
+            }
+                      
           }
         },
         (error) => {
@@ -65,8 +69,8 @@ export class LoginPage implements OnInit {
   }
   async alert(){
     const alert = await this.alertController.create({
-      cssClass: 'my-custom-class',
-      header: 'Error',
+      cssClass: 'Error login',
+      header: 'Informacion :',
       message: 'Usuario o contraseña incorrectos',
       buttons: ['OK']
     });
