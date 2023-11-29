@@ -12,6 +12,9 @@ import { HttpResponse } from '@angular/common/http';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
+  static login(arg0: string, arg1: string) {
+    throw new Error('Method not implemented.');
+  }
   private typeuser!: usuario;
 
   desUser = 'Ingrese usuario';
@@ -41,7 +44,7 @@ export class LoginPage implements OnInit {
           // Asegúrate de que estás tipando la respuesta como HttpResponse.
           this.typeuser = response.body as unknown as usuario;
           console.log('Éxito:', response.status);
-          if (response.status == 200) {
+          if (response.status === 200) {
             let setData: NavigationExtras = {
               state: {
                 id: this.typeuser,
@@ -59,7 +62,6 @@ export class LoginPage implements OnInit {
             if (response.status === 401){
               this.alert();
             }
-                      
           }
         },
         (error) => {

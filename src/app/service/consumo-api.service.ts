@@ -27,7 +27,7 @@ export class ConsumoApiService {
       password: contrasena,
     };
     return this.http.post<usuario>(`${this.url}/login`, body, { ...this.httpOptions, observe: 'response' });
-  }
+  };
 
   // Método para consultar una asignatura por su sigla
   getAsignatura(sigla: string): Observable<any> {
