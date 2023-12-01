@@ -3,19 +3,17 @@
     <ion-img src=" ../../../../../assets/icon/pngegg.png"></ion-img>
   </ion-toolbar>
 </ion-header>
-
 <ion-content>
   <ion-card>
     <ion-card-title>
-      <h2>Hola {{nombre}}
-      </h2>
+      <h2>Hola {{nombre}}{{apellido}}</h2>
     </ion-card-title>
     <ion-grid>
     <ion-row>
       <ion-item lines="none">
         <ion-col>
           <ion-button fill="clear" color="white">
-          <ion-img src=" ../../../../../assets/icon/asistencia-4.png" [routerLink]="['/profesor']" ></ion-img>
+          <ion-img src=" ../../../../../assets/icon/asistencia-4.png" [routerLink]="['/asignatura']"></ion-img>
           </ion-button>
           <ion-label style="color: black; margin-left:5px">Registrar Asistencia</ion-label>
         </ion-col>
@@ -31,5 +29,4 @@
     </ion-row>
   </ion-grid>
   </ion-card>
-  
 </ion-content>

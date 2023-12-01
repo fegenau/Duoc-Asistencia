@@ -11,16 +11,17 @@ export class MenuProfesorPage implements OnInit {
   nombre: any;
   apellido: any;
 
-  constructor(private activeroute: ActivatedRoute, private router: Router) { 
-    this.activeroute.queryParams.subscribe(params => {
+  constructor(private route: ActivatedRoute, private router: Router) 
+  { 
+    this.route.queryParams.subscribe(params => {
       if (this.router.getCurrentNavigation()?.extras.state ) {
         this.nombre = this.router.getCurrentNavigation()?.extras.state?.['nombre'];
-        this. apellido = this.router.getCurrentNavigation()?.extras.state?.['apellidop'];
+        this. apellido = this.router.getCurrentNavigation()?.extras.state?.['apellido'];
+        }
       }
-    })
-  }
-
+    
+  )};
   ngOnInit() {
   }
-
+  
 }

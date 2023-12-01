@@ -1,11 +1,11 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { EstudiantePage } from './estudiante.page';
+import { QrpagePage } from './qrpage.page';
 import { ActivatedRoute } from '@angular/router';
 import { of } from 'rxjs';
 
-describe('EstudiantePage', () => {
-  let component: EstudiantePage;
-  let fixture: ComponentFixture<EstudiantePage>;
+describe('QrpagePage', () => {
+  let component: QrpagePage;
+  let fixture: ComponentFixture<QrpagePage>;
 
   // Crear un mock de ActivatedRoute
   const activatedRouteStub = {
@@ -25,7 +25,7 @@ describe('EstudiantePage', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [EstudiantePage],
+      declarations: [QrpagePage],
       providers: [
         { provide: ActivatedRoute, useValue: activatedRouteStub }
       ]
@@ -34,7 +34,7 @@ describe('EstudiantePage', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(EstudiantePage);
+    fixture = TestBed.createComponent(QrpagePage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

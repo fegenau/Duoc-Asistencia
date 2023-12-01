@@ -1,0 +1,28 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-img src=" ../../../../../assets/icon/pngegg.png"></ion-img>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card class="ion-text-center">
+    <ion-card-title>
+      Asignatura: Programacion App Movil
+    </ion-card-title>
+    <ion-card-content>
+      <qrcode
+      [qrdata]="qrCodeString" 
+      [width]="256" 
+      [errorCorrectionLevel]="'L'">
+    </qrcode>
+    </ion-card-content>
+  <ion-card-subtitle>
+    <h2>Docente : Diego Cares</h2>
+    <h2>Sigla   : PGY4121 </h2>
+  </ion-card-subtitle>
+  <ion-button fill="clear" color="danger" [routerLink]="['/asignatura']" ><ion-icon name="arrow-undo-sharp"></ion-icon> 
+    Volver
+  </ion-button>
+  </ion-card>
+  
+</ion-content>
