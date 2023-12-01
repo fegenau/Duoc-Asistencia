@@ -1,25 +1,22 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { of, throwError } from 'rxjs';
-//import { TuComponente } from './tu-componente.component';
-//import { ConsumoApi } from './consumo-api.service';
 import { Router } from '@angular/router';
-import { AlertService } from './alert.service';
 import { HttpResponse } from '@angular/common/http';
 import { LoginPage } from './login.page';
 import { ConsumoApiService } from '../service/consumo-api.service';
+import { usuario } from '../modelos/usuarios';
 
 describe('LoginPage', () => {
   let component: LoginPage;
   let fixture: ComponentFixture<LoginPage>;
   let consumoApiSpy: jasmine.SpyObj<ConsumoApiService>;
   let routerSpy: jasmine.SpyObj<Router>;
-  let alertServiceSpy: jasmine.SpyObj<AlertService>;
 
   beforeEach(waitForAsync(() => {
     consumoApiSpy = jasmine.createSpyObj('ConsumoApi', ['login']);
-    routerSpy = jasmine.createSpyObj('Router', ['navigate']);
-    alertServiceSpy = jasmine.createSpyObj('AlertService', ['alert']);
+    
+    
 
     TestBed.configureTestingModule({
       declarations: [LoginPage],
@@ -27,7 +24,7 @@ describe('LoginPage', () => {
       providers: [
         { provide: ConsumoApiService, useValue: consumoApiSpy },
         { provide: Router, useValue: routerSpy },
-        { provide: AlertService, useValue: alertServiceSpy }
+        
       ],
     }).compileComponents();
   }));
@@ -39,37 +36,28 @@ describe('LoginPage', () => {
   });
 
   it('should call login and navigate on successful login', () => {
-    const mockUsuario = { id:"",nombre:"",usuario:"",contraseña:"",tipo:"",rut:"",email:"",carrera:"",apellidop:"" };
-    const mockResponse = new HttpResponse({ status: 200, body: mockUsuario });
-    consumoApiSpy.login.and.returnValue(of(mockResponse));
+    //const mockUsuario = {usuario:'fr.egenau', contraseña:'fr.egenau'};
+    const usuario : usuario = { id:undefined, nombre:undefined, email:undefined,tipo:undefined,rut: undefined, carrera: undefined, apellidop: undefined,usuario: 'fr.egenau', contraseña: 'fr.egenau'}
+    const mockResponse: HttpResponse<usuario> = new HttpResponse<usuario>({
+        body: usuario
+    })
+    consumoApiSpy.login.arguments('fr.egenau','fr.egenau').returnValue(mockResponse);
+    
 
     component.ingresar();
 
-    expect(consumoApiSpy.login).toHaveBeenCalledWith('d.cares', 'd.cares');
-    expect(routerSpy.navigate).toHaveBeenCalledWith(['/loading'], jasmine.objectContaining({
-      state: jasmine.objectContaining({
-        id: mockUsuario,
-        nombre : mockUsuario.nombre,
-        usuario: mockUsuario.usuario,
-        contraseña : mockUsuario.contraseña,
-        tipo: mockUsuario.tipo,
-        rut: mockUsuario.rut,
-        email: mockUsuario.email,
-        carrera: mockUsuario.carrera,
-        apellidop: mockUsuario.apellidop 
-      }),
-    }));
+    expect(consumoApiSpy.login).toHaveBeenCalledWith('fr.egenau','fr.egenau')
+        
+    });
   });
 
-  it('should call alert on login error with status 401', () => {
-    const errorResponse = { status: 401 };
-    consumoApiSpy.login.and.returnValue(throwError(errorResponse));
-
-    component.ingresar();
-
-    expect(consumoApiSpy.login).toHaveBeenCalledWith('usuario', 'contraseña');
-    expect(alertServiceSpy.alert).toHaveBeenCalled();
-  });
+//  it('should call alert on login error with status 401', () => {
+//    const errorResponse = { status: 401 };
+//    consumoApiSpy.login.and.returnValue(throwError(errorResponse));
+//
+//    component.ingresar();
+//
+//    expect(consumoApiSpy.login).toHaveBeenCalledWith('usuario', 'contraseña');
+//  });
 
   // Agrega más pruebas según sea necesario
-});

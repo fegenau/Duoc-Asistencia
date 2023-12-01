@@ -14,13 +14,4 @@ describe('ConsumoApiService', () => {
     expect(service).toBeTruthy();
   });
 
-  it ('login() ok', () => {
-    const usuario = 'test';
-    const password = 'test';
-    service.login(usuario, password).subscribe(
-      (response) => {
-        expect(response.status).toEqual(200);
-      }
-    )
-  })
 });

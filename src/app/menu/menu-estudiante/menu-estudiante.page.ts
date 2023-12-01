@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner/ngx';
+import { ConsumoApiService } from 'src/app/service/consumo-api.service';
 
 @Component({
   selector: 'app-menu-estudiante',
@@ -17,6 +18,7 @@ export class MenuEstudiantePage implements OnInit {
 
   constructor(
 
+    private consumoApi: ConsumoApiService,
     private activeroute: ActivatedRoute, 
     private router: Router,
     private barcodeScanner: BarcodeScanner
@@ -31,12 +33,14 @@ export class MenuEstudiantePage implements OnInit {
         this.carrera =
           this.router.getCurrentNavigation()?.extras.state?.['carrera'];
       }
-
+      //aplicar metodo registrarasistencia 
+      //this.consumoApi.registrarAsistenciaAlumno 
     });
   }
   scanQRCode(){
     this.barcodeScanner.scan().then((barcodeData) => {
       console.log('Resultado del escaneo:',barcodeData.text);
+
     })
     .catch((error) => {
       console.error('Error al escanear',error);

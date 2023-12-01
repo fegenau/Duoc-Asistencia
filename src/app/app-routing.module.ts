@@ -14,18 +14,6 @@ const routes: Routes = [
     //canActivate: [GuardsGuard]
   },
   {
-    path: 'estudiante',
-    loadChildren: () => import('./home/estudiante/estudiante.module').then( m => m.EstudiantePageModule),
-    canActivate: [GuardsGuard],
-    data: {tipo: [1] }
-  },
-  {
-    path: 'profesor',
-    loadChildren: () => import('./home/profesor/profesor.module').then( m => m.ProfesorPageModule),
-    canActivate: [GuardsGuard],
-    data: {tipo: [2] }
-  },
-  {
     path: 'loading',
     loadChildren: () => import('./loading/loading.module').then( m => m.LoadingPageModule)
   },
