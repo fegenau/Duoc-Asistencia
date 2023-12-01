@@ -53,34 +53,34 @@ export class AsignaturaPage implements OnInit {
   ngOnInit() {
   }
 
-consultarAsignatura(sigla:any){
-  this.consumoApi.getAsignatura(sigla).subscribe(
-    (data) => {
-      // Aquí puedes manejar la respuesta de la API, por ejemplo, mostrarla en la interfaz de usuario.
-      console.log('Exito',data.status);
-      if(data.status === 200){
-        let setData: NavigationExtras = {
-          state: {
-            nombre: this.typeid.nombre,
-            sigla: this.typeid.sigla,
-          }
-        }
-      if (this.typeid.sigla == 'PGY4121'){
-        this.router.navigate(['/qrcode'],setData);
-      }
-      if (this.typeid.sigla == 'PBD0123'){
-        this.router.navigate(['/qrcode'],setData);
-      } 
-    }
-      if (data.status === 401) {
-        this.presentAlert();
-      }
-  },
-  (error) => {
-    console.log('Error en inicio de sesion:', error);
-  });
-  }
-}
+//consultarAsignatura(sigla:any){
+//  this.consumoApi.getAsignatura(sigla).subscribe(
+//    (data) => {
+//      // Aquí puedes manejar la respuesta de la API, por ejemplo, mostrarla en la interfaz de usuario.
+//      console.log('Exito',data.status);
+//      if(data.status === 200){
+//        let setData: NavigationExtras = {
+//          state: {
+//            nombre: this.typeid.nombre,
+//            sigla: this.typeid.sigla,
+//          }
+//        }
+//      if (this.typeid.sigla == 'PGY4121'){
+//        this.router.navigate(['/qrcode'],setData);
+//      }
+//      if (this.typeid.sigla == 'PBD0123'){
+//        this.router.navigate(['/qrcode'],setData);
+//      } 
+//    }
+//      if (data.status === 401) {
+//        this.presentAlert();
+//      }
+//  },
+//  (error) => {
+//    console.log('Error en inicio de sesion:', error);
+//  });
+//  }
+};
 
 
 

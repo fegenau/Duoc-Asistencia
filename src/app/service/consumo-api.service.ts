@@ -35,7 +35,7 @@ export class ConsumoApiService {
     const url = `${this.url}/${sigla}`;
 
     // Realiza la solicitud GET a la API
-    return this.http.get(url);
+  return this.http.get(url);
   };
   //metodo para registrar asistencia con nombre de alumno
   public registrarAsistenciaAlumno(nombrealumno:string,sigla:string){

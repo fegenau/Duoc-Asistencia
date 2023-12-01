@@ -4,7 +4,6 @@ import { usuario } from '../modelos/usuarios';
 import { ConsumoApiService } from '../service/consumo-api.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AlertController } from '@ionic/angular';
-import { HttpResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -68,8 +67,8 @@ export class LoginPage implements OnInit {
           console.log('Error en inicio de sesion:', error);
         }
       );
-  }
-  async alert(){
+  };
+  async alert() {
     const alert = await this.alertController.create({
       cssClass: 'Error login',
       header: 'Informacion :',
@@ -78,6 +77,7 @@ export class LoginPage implements OnInit {
     });
     await alert.present();
   }
+  
 
   constructor(
     private router: Router,
