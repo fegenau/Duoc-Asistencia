@@ -25,5 +25,51 @@ Asegúrate de tener instalados los siguientes elementos antes de ejecutar la apl
 1. Clona este repositorio:
 
 ```bash
-git clone https://github.com/tuusuario/turepositorio.git
-cd turepositorio
+git clone https://github.com/fegenau/Duoc-Asistencia.git
+cd Duoc-asistencia
+
+2-.Instala las dependencias del frontend:
+bash
+Copy code
+cd frontend
+npm install
+
+3-.Configura la base de datos PostgreSQL:
+
+4-. Crea una base de datos llamada duocuc_asistencia.
+5-. Configura las credenciales de acceso en el archivo backend/config.py.
+6-. Instala las dependencias del backend:
+
+bash
+Copy code
+cd ../backend
+pip install -r requirements.txt
+Ejecución
+Inicia el backend (API Flask):
+bash
+Copy code
+cd backend
+python app.py
+En una nueva ventana de terminal, inicia el frontend (Ionic):
+bash
+Copy code
+cd frontend
+ionic serve
+Visita http://localhost:8100 en tu navegador para ver la aplicación en acción.
+
+Contribuciones
+¡Las contribuciones son bienvenidas! Si encuentras algún problema o tienes sugerencias, por favor crea un issue o envía un pull request.
+
+Licencia
+Este proyecto está licenciado bajo la Licencia MIT. Consulta el archivo LICENSE para más detalles.
+
+javascript
+Copy code
+
+Asegúrate de reemplazar `tuusuario` y `turepositorio` con tus datos reales. Además, ajusta la información según la estructura y tecnologías reales de tu proyecto. ¡Espero que esto te sea útil!
+
+
+
+
+
+
