@@ -12,7 +12,7 @@ export class QrpagePage implements OnInit {
   nombre: any;
   sigla: any;
 
-  qrCodeString= 'docente Diego Cares; sigla' ;
+  qrCodeString= ' Diego Cares; sigla' ;
 
   constructor(private activerouter: ActivatedRoute, private router: Router) { 
     this.activerouter.queryParams.subscribe(params => {
