@@ -38,12 +38,18 @@ export class ConsumoApiService {
   return this.http.get(url);
   };
   //metodo para registrar asistencia con nombre de alumno
-  public registrarAsistenciaAlumno(nombrealumno:string,sigla:string){
+  public registrarAsistenciaAlumno(nombre_alumno:string,sigla:string){
     const body = {
-      nombre: nombrealumno,
+      nombre: nombre_alumno,
       sigla: sigla,
     };
     return this.http.post(`${this.url}/asistencia`, body, this.httpOptions);
-  }
+  };
+
+  //metodo para obtener asistencia
+  public getAsistencia(sigla:string): Observable<any>{
+    const url = `${this.url}/asistencia/${sigla}`;
+    return this.http.get(url);
+  };
 };
   

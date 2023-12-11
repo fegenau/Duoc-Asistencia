@@ -41,12 +41,14 @@ const routes: Routes = [
     canActivate: [GuardsGuard],
     data: {tipo: [2] }
   },
+  {
+    path: 'asistencia',
+    loadChildren: () => import('./asistencia/asistencia.module').then( m => m.AsistenciaPageModule),
+    canActivate: [GuardsGuard],
+    data: {tipo: [2] }
+  },
   { path: 'not-found', loadChildren: () => import('./not-found/not-found.module').then(m => m.NotFoundPageModule) },
   { path: '**', redirectTo: 'not-found' },
-
- 
-
-
 ];
 
 @NgModule({

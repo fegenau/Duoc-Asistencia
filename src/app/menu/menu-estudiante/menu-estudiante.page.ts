@@ -39,6 +39,7 @@ export class MenuEstudiantePage implements OnInit {
   }
   scanQRCode(){
     this.barcodeScanner.scan().then((barcodeData) => {
+      this.consumoApi.registrarAsistenciaAlumno(this.nombre,'PGY1411')
       console.log('Resultado del escaneo:',barcodeData.text);
 
     })
